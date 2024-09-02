@@ -23,10 +23,10 @@ public class ProfessorEntity {
 
     private String title;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "professor_student_id",
-            joinColumns = @JoinColumn(name="professor_id"),
-            inverseJoinColumns = @JoinColumn(name="student_id"))
+            joinColumns = @JoinColumn(name= "professor_id"),
+            inverseJoinColumns = @JoinColumn(name= "student_id"))
     private Set<StudentEntity> students;
 
     @OneToMany(mappedBy = "professor")

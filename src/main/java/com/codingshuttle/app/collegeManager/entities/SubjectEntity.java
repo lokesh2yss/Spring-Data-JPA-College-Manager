@@ -23,10 +23,10 @@ public class SubjectEntity {
 
     private String title;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "subject_student_id",
-        joinColumns = @JoinColumn(name="subject_id"),
-        inverseJoinColumns = @JoinColumn(name="student_id"))
+        joinColumns = @JoinColumn(name= "subject_id"),
+        inverseJoinColumns = @JoinColumn(name= "student_id"))
     private Set<StudentEntity> students;
 
     @ManyToOne(cascade = CascadeType.ALL)

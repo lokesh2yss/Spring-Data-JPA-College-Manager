@@ -23,7 +23,7 @@ public class SubjectController {
         return subjectService.createNewSubject(subjectEntity);
     }
 
-    @PutMapping(path="/{subjectId}/professors/{professorId}")
+    @PutMapping(path="/{subjectId}/professor/{professorId}")
     public SubjectEntity assignProfessorToSubject(@PathVariable Long subjectId, @PathVariable Long professorId)  {
         return subjectService.assignProfessorToSubject(subjectId, professorId);
     }
